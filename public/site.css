@@ -1,0 +1,207 @@
+/*
+ * platform-kit.org: the "Control room" theme of metal.platform-kit.org, for plain HTML.
+ * Dark first; light when the system asks for it. All fonts come from this site.
+ */
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('/fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('/fonts/ibm-plex-mono-latin-600-normal.woff2') format('woff2');
+}
+
+:root {
+  --pk-font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --pk-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --pk-paper: #0b0f14;
+  --pk-paper-2: #111821;
+  --pk-rule: #1f2a36;
+  --pk-rule-strong: #2d3b4a;
+  --pk-ink: #e6edf3;
+  --pk-ink-2: #b4c0cc;
+  --pk-ink-3: #8b98a5;
+  --pk-link: #22d3ee;
+  --pk-on-accent: #04141a;
+  --pk-radius: 3px;
+  --pk-radius-lg: 6px;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --pk-paper: #f6f8fa;
+    --pk-paper-2: #ffffff;
+    --pk-rule: #d0d7de;
+    --pk-rule-strong: #afb8c1;
+    --pk-ink: #1f2328;
+    --pk-ink-2: #424a53;
+    --pk-ink-3: #59636e;
+    --pk-link: #0e7490;
+    --pk-on-accent: #ffffff;
+    color-scheme: light;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--pk-paper);
+  color: var(--pk-ink);
+  font: 1rem/1.65 var(--pk-font-body);
+}
+
+a {
+  color: var(--pk-link);
+}
+
+.pk-main {
+  flex: 1;
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 4rem 1rem 3rem;
+}
+
+.pk-kicker {
+  margin: 0;
+  font: 500 0.75rem/1.4 var(--pk-font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pk-ink-3);
+}
+
+h1 {
+  margin: 0.5rem 0 0;
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+h1::after {
+  content: '';
+  display: block;
+  inline-size: 2.5rem;
+  block-size: 3px;
+  margin-top: 0.75rem;
+  background: var(--pk-link);
+}
+
+h2 {
+  margin: 2.5rem 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.pk-tagline {
+  max-width: 36rem;
+  margin: 1rem 0 0;
+  font-size: 1.1rem;
+  color: var(--pk-ink-2);
+}
+
+.pk-cards {
+  display: grid;
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-card {
+  display: block;
+  padding: 1.25rem 1.25rem 1.1rem;
+  border: 1px solid var(--pk-rule-strong);
+  border-radius: var(--pk-radius-lg);
+  background: var(--pk-paper-2);
+  color: inherit;
+  text-decoration: none;
+}
+.pk-card:hover,
+.pk-card:focus-visible {
+  border-color: var(--pk-link);
+}
+.pk-card-name {
+  margin: 0;
+  font: 600 1.05rem/1.4 var(--pk-font-mono);
+  color: var(--pk-link);
+}
+.pk-card-text {
+  margin: 0.35rem 0 0;
+  color: var(--pk-ink-2);
+}
+.pk-card-host {
+  margin: 0.75rem 0 0;
+  font: 0.8rem/1.4 var(--pk-font-mono);
+  color: var(--pk-ink-3);
+}
+
+.pk-prose {
+  max-width: 42rem;
+}
+.pk-prose p,
+.pk-prose li {
+  color: var(--pk-ink-2);
+}
+.pk-prose address {
+  font-style: normal;
+}
+
+.pk-footer {
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+}
+.pk-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--pk-rule);
+  font-size: 0.78rem;
+}
+.pk-legal a {
+  color: var(--pk-ink-3);
+  text-decoration: none;
+}
+.pk-legal a:hover,
+.pk-legal a:focus-visible,
+.pk-legal a[aria-current='page'] {
+  color: var(--pk-link);
+  text-decoration: underline;
+}
